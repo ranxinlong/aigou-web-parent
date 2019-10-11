@@ -31,15 +31,20 @@ const router = new VueRouter({
   routes
 })
 
+/*每次路由之前的事件*/
 router.beforeEach((to, from, next) => {
   //NProgress.start();
+    //如果要跳转登录页面，就清空用户数据
   if (to.path == '/login') {
     sessionStorage.removeItem('user');
   }
+  //获取浏览器里面的session对象里面的user
   let user = JSON.parse(sessionStorage.getItem('user'));
+  //如果user为空就跳转到登录页面
   if (!user && to.path != '/login') {
     next({ path: '/login' })
   } else {
+    //如果user不为空，就正常跳转
     next()
   }
 })

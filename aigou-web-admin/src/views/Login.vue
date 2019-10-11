@@ -52,8 +52,25 @@
             //NProgress.start();
             var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
 
+              this.$http.post("/plat/login",loginParams).then(res => {
+                  this.logining = false;
+                  //NProgress.done();
+                  console.debug(res);
+                  let { message, success, restObj } = res.data;
+                  if (!success) {
+                      this.$message({
+                          message: msg,
+                          type: 'error'
+                      });
+                  } else {
+                      //sessionStorage是前端浏览器的session，是h5的新特性
+                      sessionStorage.setItem('user', JSON.stringify(restObj));
+                      this.$router.push({ path: '/table' });
+                  }
+              });
+
             //登录
-            requestLogin(loginParams).then(data => {
+            /*requestLogin(loginParams).then(data => {
               this.logining = false;
               //NProgress.done();
               let { msg, code, user } = data;
@@ -66,7 +83,7 @@
                 sessionStorage.setItem('user', JSON.stringify(user));
                 this.$router.push({ path: '/table' });
               }
-            });
+            });*/
 
 
           } else {

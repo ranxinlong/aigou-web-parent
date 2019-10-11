@@ -65,10 +65,9 @@ let routes = [
         path: '/',
         component: Home,
         name: '营销管理',
-        iconCls: 'fa fa-bar-chart',
-        left:true,
+        iconCls: 'fa fa-address-card',
         children: [
-            { path: '/echarts', component: echarts, name: '营销活动管理' }
+            { path: '/page6', component: Page6, name: '营销活动管理' }
         ]
     },
     {
