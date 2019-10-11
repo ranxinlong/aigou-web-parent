@@ -51,6 +51,8 @@
             this.logining = true;
             //NProgress.start();
             var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
+
+            //登录
             requestLogin(loginParams).then(data => {
               this.logining = false;
               //NProgress.done();
@@ -65,6 +67,8 @@
                 this.$router.push({ path: '/table' });
               }
             });
+
+
           } else {
             console.log('error submit!!');
             return false;
