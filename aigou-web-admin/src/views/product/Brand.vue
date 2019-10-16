@@ -30,7 +30,7 @@
             <el-table-column prop="logo" label="品牌logo" width="120" sortable>
                 <template scope="scope">
                     <!--scope.row.logo-->
-                    <img src="brands.logo"/>
+                    <img :src="'http://172.16.4.128'+ scope.row.logo" height="50px" style="margin-top: 6px">
                 </template>
             </el-table-column>
             <el-table-column prop="productType.name" label="商品类型" width="180" sortable>
@@ -62,20 +62,28 @@
                     <el-input v-model="editForm.englishName"></el-input>
                 </el-form-item>
                 <el-form-item label="品牌logo" prop="logo">
-                    <el-input v-model="editForm.logo"></el-input>
+                    <el-upload
+                            class="upload-demo"
+                            action="http://127.0.0.1:6969/services/common/file"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :before-upload="beforeupload"
+                            :on-success="handonsucess"
+                            :file-list="fileList"
+                            list-type="picture">
+                        <el-button size="small" type="primary" style="width: 200px">点击上传品牌logo</el-button>
+                    </el-upload>
                 </el-form-item>
-                <div class="block">
-                    <span class="demonstration" style="margin-left: 11px">商品类型</span>
-                    <el-cascader style="margin-left: 12px"
+                <el-form-item label="商品类型">
+                    <el-cascader
+                            :props="defaultParams"
                                  :change-on-select="true"
-                                 :props="defaultParams"
                                  placeholder='请选择商品类型'
                                  :options="options"
                                  v-model="selectedOptions2"
                                  :clearable="true">
                     </el-cascader>
-                    <!--editForm.productTypeId-->
-                </div>
+                </el-form-item>
                 <el-form-item> </el-form-item>
                 <el-form-item label="描述">
                     <el-input type="textarea" v-model="editForm.description"></el-input>
@@ -98,21 +106,30 @@
                 </el-form-item>
 
                 <el-form-item label="品牌logo" prop="logo">
-                    <el-input v-model="addForm.logo"></el-input>
+                    <el-upload
+                            class="upload-demo"
+                            action="http://127.0.0.1:6969/services/common/file"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :before-upload="beforeupload"
+                            :on-success="handonsucess"
+                            :file-list="fileList"
+                            list-type="picture">
+                        <el-button size="small" type="primary" style="width: 200px">点击上传品牌logo</el-button>
+                    </el-upload>
+                </el-form-item>
+                <el-form-item label="商品类型" prop="productTypeId">
+                    <el-cascader
+                                 @change="handleChange"
+                                 :change-on-select="true"
+                                 :props="defaultParams"
+                                 placeholder='请选择商品类型'
+                                 :options="options"
+                                 v-model="addForm.productTypeId"
+                                 :clearable="true">
+                    </el-cascader>
                 </el-form-item>
 
-                <div class="block">
-                    <span class="demonstration" style="margin-left: 11px">商品类型</span>
-                    <el-cascader style="margin-left: 12px"
-                            @change="handleChange"
-                            :change-on-select="true"
-                            :props="defaultParams"
-                            placeholder='请选择商品类型'
-                            :options="options"
-                            v-model="addForm.productTypeId"
-                            :clearable="true">
-                    </el-cascader>
-                </div>
                 <el-form-item> </el-form-item>
                 <el-form-item label="描述">
                     <el-input type="textarea" v-model="addForm.description"></el-input>
@@ -134,6 +151,7 @@
     export default {
         data() {
             return {
+                fileList: [],
                 selectedOptions2: [],
                 options: [],
                // selectedOptions: [],
@@ -157,7 +175,11 @@
                 editFormRules: {
                     name: [
                         { required: true, message: '请输入商品名', trigger: 'blur' }
+                    ],
+                    englishName:[
+                        {required: true, message: '请输入英文名', trigger: 'blur' }
                     ]
+
                 },
                 //编辑界面数据
                 editForm: {
@@ -174,6 +196,12 @@
                 addFormRules: {
                     name: [
                         { required: true, message: '请输入商品名', trigger: 'blur' }
+                    ],
+                    englishName:[
+                        { required: true, message: '请输入英文名', trigger: 'blur' }
+                    ],
+                    productTypeId:[
+                        { required: true, message: '请选择商品类型', trigger: 'blur',type :'array'}
                     ]
                 },
                 //新增界面数据
@@ -188,7 +216,49 @@
             }
         },
         methods: {
-
+            handonsucess(response, file, fileList){
+                let{message,restObj,success} = response;
+                if (success){
+                    this.$message({
+                        message: '上传成功',
+                        type: 'success'
+                    });
+                    this.addForm.logo = restObj;
+                    this.editForm.logo = restObj;
+                }else{
+                    this.$message({
+                        message: message,
+                        type: 'error'
+                    });
+                }
+                this.fileList = fileList;
+            },
+            /*删除已经上传了的图片*/
+            handleRemove(file, fileList) {
+                let FileId = '';
+                if(file.size){
+                    FileId = file.response.restObj;
+                }else {
+                    FileId = file.url.slice(19);
+                }
+                this.$http.delete("/common/file?FileId="+FileId).then(res=>{
+                    if (res.data.success){
+                        this.fileList=[];
+                    }
+                }).catch({})
+            },
+            handlePreview(file) {
+                console.log(file);
+            },
+            beforeupload(file){
+                if(this.fileList.length > 0){
+                    this.$message({
+                        message: '只能上传一张logo！',
+                        type: 'error'
+                    });
+                    return false;
+                }
+            },
             handleChange(value) {
                 console.log(value);
             },
@@ -244,7 +314,6 @@
                 };
                 this.listLoading = true;
                 this.$http.post("/product/brand/json",para).then(res=>{
-                    console.debug(res);
                     this.listLoading = false;
                     let{total,rows} = res.data;
                     this.total = total;
@@ -274,14 +343,18 @@
                             });
                         }
                     });
+                    this.$http.delete("/common/file?FileId="+row.logo).then(res=>{
+                    }).catch({});
                 }).catch(() => {
                 });
             },
             //显示编辑界面
-            handleEdit: function (index, row) {
+            handleEdit:function (index, row) {
+                this.fileList = [];
                 this.editFormVisible = true;
-                this.loadGetPath(index, row)
                 this.editForm = Object.assign({}, row);
+                this.loadGetPath(index, row)
+                this.fileList.push({"url":"http://172.16.4.128"+this.editForm.logo});
             },
             //显示新增界面
             handleAdd: function () {
@@ -294,6 +367,7 @@
                     productTypeId: [],
                     logo:''
                 };
+                this.fileList = [];
             },
             //编辑
             editSubmit: function () {
@@ -307,6 +381,7 @@
                                 var b = this.selectedOptions2[i];
                             }
                             para.productTypeId = b;
+                            console.debug(para);
                             this.$http.post("/product/brand/add",para).then(
                                 res=>{
                                     let {success,message,restObj} = res.data;
@@ -345,7 +420,6 @@
                                 var b = this.addForm.productTypeId[i];
                             }
                             para.productTypeId = b;
-                            console.debug(para);
                             this.$http.post("/product/brand/add",para).then(
                                 res=>{
                                     let {success,message,restObj} = res.data;
@@ -358,6 +432,7 @@
                                         });
                                         this.$refs['addForm'].resetFields();
                                         this.addFormVisible = false;
+                                        this.fileList = [];
                                         this.getbrands();
                                     }else{
                                         this.$message({

@@ -33,7 +33,7 @@ let routes = [
         iconCls: 'fa fa-address-card',
         leaf: true,//只有一个节点
         children: [
-            { path: '/echarts', component: echarts, name: '首页' }
+            { path: '/table', component: echarts, name: '首页' }
         ]
     },
     //{ path: '/main', component: Main },
