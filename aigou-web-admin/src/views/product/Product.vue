@@ -54,7 +54,7 @@
 			</el-table-column>
 			<el-table-column label="操作" width="150">
 				<template scope="scope">
-					<el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+					<el-button size="small" @click="loadextData(scope.$index, scope.row),handleEdit(scope.$index, scope.row)">编辑</el-button>
 					<el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
 				</template>
 			</el-table-column>
@@ -70,23 +70,57 @@
 		<!--编辑界面-->
 		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
 			<el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
-				<el-form-item label="姓名" prop="name">
+				<el-form-item label="标题" prop="name">
 					<el-input v-model="editForm.name" auto-complete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="性别">
-					<el-radio-group v-model="editForm.sex">
-						<el-radio class="radio" :label="1">男</el-radio>
-						<el-radio class="radio" :label="0">女</el-radio>
-					</el-radio-group>
+				<el-form-item label="副标题" prop="subName">
+					<el-input v-model="editForm.subName" auto-complete="off"></el-input>
 				</el-form-item>
-				<el-form-item label="年龄">
-					<el-input-number v-model="editForm.age" :min="0" :max="200"></el-input-number>
+
+				<el-form-item label="商品类型" prop="productTypeId">
+					<el-cascader
+							:change-on-select="true"
+							:props="defaultParams"
+							placeholder='请选择商品类型'
+							:options="options"
+							v-model="selectedOptions2"
+							:clearable="true">
+					</el-cascader>
 				</el-form-item>
-				<el-form-item label="生日">
-					<el-date-picker type="date" placeholder="选择日期" v-model="editForm.birth"></el-date-picker>
+				<el-form-item label="品牌">
+					<el-select v-model="editForm.brandId" filterable placeholder="请选择品牌">
+						<el-option
+								v-for="item in brands"
+								:label="item.name"
+								:value="item.id">
+						</el-option>
+					</el-select>
 				</el-form-item>
-				<el-form-item label="地址">
-					<el-input type="textarea" v-model="editForm.addr"></el-input>
+				<el-form-item label="商品描述">
+					<el-input  type="textarea" v-model="editForm.ext.description" auto-complete="off"></el-input>
+				</el-form-item>
+				<el-form-item label="媒体属性" >
+					<!--<el-input v-model="addForm.medias" auto-complete="off"></el-input>-->
+					<el-upload
+							class="upload-demo"
+							action="http://127.0.0.1:6969/services/common/file"
+							:on-preview="handlePreview"
+							:on-remove="handleRemove"
+							:before-upload="beforeupload"
+							:on-success="handonsucess"
+							:file-list="fileList"
+							list-type="picture">
+						<el-button size="small" type="primary" style="width: 200px">点击上传品牌logo</el-button>
+					</el-upload>
+
+
+				</el-form-item>
+				<el-form-item label="商品详情">
+					<!--<el-input v-model="addForm.ext.richContent" auto-complete="off"></el-input>-->
+					<quill-editor
+							v-model="editForm.ext.richContent"
+							ref="myQuillEditor">
+					</quill-editor>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">
@@ -168,6 +202,7 @@
 	export default {
 		data() {
 			return {
+                selectedOptions2: [],
                 fileList: [],
                 brands:[],
                 options: [],
@@ -191,19 +226,24 @@
 				editLoading: false,
 				editFormRules: {
 					name: [
-						{ required: true, message: '请输入姓名', trigger: 'blur' }
-					]
+						{ required: true, message: '请输入标题', trigger: 'blur' }
+					],
+                    subName: [
+                        { required: true, message: '请输入副标题', trigger: 'blur' }
+                    ]
 				},
 				//编辑界面数据
 				editForm: {
-					id: 0,
-					name: '',
-					sex: -1,
-					age: 0,
-					birth: '',
-					addr: ''
+                    name: '',
+                    subName:'',
+                    productTypeId:'',
+                    brandId:'',
+                    medias:'',
+                    ext: {
+                        description:'',
+                        richContent:'',
+                    }
 				},
-
 				addFormVisible: false,//新增界面是否显示
 				addLoading: false,
 				addFormRules: {
@@ -229,6 +269,44 @@
 			}
 		},
 		methods: {
+            /*编辑室获取回填菜单*/
+            loadGetPath(index, row){
+                this.$http.get("/product/productType/"+row.productTypeId).then(res=>{
+                    var selectedOptions = res.data.path.split('.');
+                    let paths = [];
+                    let indexs ='';
+                    for (let index = 0 ; index < selectedOptions.length ; index++){
+                        if (selectedOptions[index] != ''){
+                            indexs = parseInt(selectedOptions[index]);
+                            paths.push(indexs);
+                        }
+                    }
+                    this.selectedOptions2 = paths;
+                }).catch({});
+            },
+            handlePreview(){},
+            beforeupload(){},
+            /*删除已经上传了的图片*/
+            handleRemove(file, fileList) {
+                let FileId = '';
+                if(file.size){
+                    FileId = file.response.restObj;
+                }else {
+                    FileId = file.url.slice(19);
+                }
+                this.$http.delete("/common/file?FileId="+FileId).then(res=>{
+                    if (res.data.success){
+                        this.fileList=[];
+                    }
+                }).catch({})
+            },
+		    loadextData(index,row){
+		       this.$http.get("/product/productExt/findOne?productId="+row.id).then(res=>{
+		            // this.editForm.ext.description = res.data.description;
+		            // this.editForm.ext.richContent = res.data.richContent;
+		            this.editForm.ext = res.data;
+				}).catch({});
+			},
             handonsucess(response, file, fileList){
                 let{message,restObj,success} = response;
                 if (success){
@@ -347,27 +425,39 @@
 				}).then(() => {
 					this.listLoading = true;
 					//NProgress.start();
-					let para = { id: row.id };
-					removeUser(para).then((res) => {
-						this.listLoading = false;
-						//NProgress.done();
-						this.$message({
-							message: '删除成功',
-							type: 'success'
-						});
-						this.getProduct();
-					});
+                    this.$http.delete("/product/product/delete/"+row.id).then(res=>{
+                        this.listLoading = false;
+                        let{success,message,restObj} = res.data;
+                        if (success){
+                            this.$message({
+                                message: '删除成功',
+                                type: 'success'
+                            });
+                            this.getProduct();
+                        }else{
+                            this.$message({
+                                message: '删除失败',
+                                type: 'error'
+                            });
+                        }
+                    });
+                    this.$http.delete("/common/file?FileId="+row.logo).then(res=>{
+                    }).catch({});
 				}).catch(() => {
 
 				});
 			},
 			//显示编辑界面
 			handleEdit: function (index, row) {
+                this.fileList=[];
 				this.editFormVisible = true;
 				this.editForm = Object.assign({}, row);
+                this.loadGetPath(index, row);
+				this.fileList.push({"url":"http://172.16.4.128"+this.editForm.medias});
 			},
 			//显示新增界面
 			handleAdd: function () {
+                this.fileList =[];
 				this.addFormVisible = true;
 				this.addForm = {
                     name: '',
@@ -389,18 +479,36 @@
 							this.editLoading = true;
 							//NProgress.start();
 							let para = Object.assign({}, this.editForm);
-							para.birth = (!para.birth || para.birth == '') ? '' : util.formatDate.format(new Date(para.birth), 'yyyy-MM-dd');
-							editUser(para).then((res) => {
-								this.editLoading = false;
-								//NProgress.done();
-								this.$message({
-									message: '提交成功',
-									type: 'success'
-								});
-								this.$refs['editForm'].resetFields();
-								this.editFormVisible = false;
-								this.getProduct();
-							});
+                            for(var i = 0;i<this.selectedOptions2.length ; i++){
+                                var b = this.selectedOptions2[i];
+                            }
+                            para.productTypeId = b;
+                            console.debug(para);
+                            this.$http.post("/product/product/add",para).then(
+                                res=>{
+                                    let {success,message,restObj} = res.data;
+                                    if(success){
+                                        this.addLoading = false;
+                                        this.$message({
+                                            message: '修改成功',
+                                            type: 'success'
+                                        });
+                                        this.$refs['editForm'].resetFields();
+                                        this.editFormVisible = false;
+                                        this.getProduct();
+                                    }else{
+                                        this.$message({
+                                            message: '修改失败',
+                                            type: 'error'
+                                        });
+                                    }
+                                }
+                            ).catch({
+
+                            });
+
+
+
 						});
 					}
 				});
@@ -461,29 +569,29 @@
 			selsChange: function (sels) {
 				this.sels = sels;
 			},
-			//批量删除
-			batchRemove: function () {
-				var ids = this.sels.map(item => item.id).toString();
-				this.$confirm('确认删除选中记录吗？', '提示', {
-					type: 'warning'
-				}).then(() => {
-					this.listLoading = true;
-					//NProgress.start();
-					let para = { ids: ids };
-					batchRemoveUser(para).then((res) => {
-						this.listLoading = false;
-						//NProgress.done();
-						this.$message({
-							message: '删除成功',
-							type: 'success'
-						});
-						this.getProduct();
-					});
-				}).catch(() => {
+            //批量删除
+            batchRemove: function () {
+                var ids = this.sels.map(item => item.id).toString();
+                this.$http.delete("/product/product/deleteBatch?ids="+ids).then(res=>{
+                    this.listLoading = false;
+                    let{success,message,restObj} = res.data;
+                    if (success){
+                        this.$message({
+                            message: '删除成功',
+                            type: 'success'
+                        });
+                        this.getProduct();
+                    }else{
+                        this.$message({
+                            message: '删除失败',
+                            type: 'error'
+                        });
+                    }
+                }).catch(() => {
 
-				});
-			}
-		},
+                });
+            }
+        },
 		mounted() {
 			this.getProduct();
 			this.loadTypeTree();

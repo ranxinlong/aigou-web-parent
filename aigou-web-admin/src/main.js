@@ -14,6 +14,14 @@ import routes from './routes'
 /*import Mock from './mock'
 Mock.bootstrap();*/
 
+//引入富文本编辑器
+import VueQuillEditor  from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.use(VueQuillEditor);
+
+
 //配置全局的axios，连接后端
 import axios from 'axios'
 axios.defaults.baseURL = "http://localhost:6969/services" //网关的URL地址
