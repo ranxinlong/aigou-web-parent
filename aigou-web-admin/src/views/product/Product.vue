@@ -138,7 +138,6 @@
 				<el-form-item label="副标题" prop="subName">
 					<el-input v-model="addForm.subName" auto-complete="off"></el-input>
 				</el-form-item>
-
 				<el-form-item label="商品类型" prop="productTypeId">
 					<el-cascader
 							:change-on-select="true"
@@ -174,8 +173,6 @@
 							list-type="picture">
 						<el-button size="small" type="primary" style="width: 200px">点击上传品牌logo</el-button>
 					</el-upload>
-
-
 				</el-form-item>
 				<el-form-item label="商品详情">
 					<!--<el-input v-model="addForm.ext.richContent" auto-complete="off"></el-input>-->
@@ -190,6 +187,16 @@
 				<el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
 			</div>
 		</el-dialog>
+
+		<el-dialog title="显示属性" v-model="handleViewFormVisible" :close-on-click-modal="false">
+			<el-form :model="handleViewForm" label-width="80px" :rules="handleViewFormRules" ref="handleViewForm">
+			</el-form>
+			<div slot="footer" class="dialog-footer">
+				<el-button @click.native="handleViewFormVisible = false">取消</el-button>
+				<el-button type="primary" @click.native="handleViewSubmit" :loading="addLoading">提交</el-button>
+			</div>
+		</el-dialog>
+
 	</section>
 </template>
 
@@ -202,6 +209,12 @@
 	export default {
 		data() {
 			return {
+			    //显示属性弹窗
+                handleViewFormVisible:false,
+			    //存放编辑页面新上传的图片；
+                imgNewPath:[],
+			    //存放修改图片时已有图片的保存位置
+                imgOriginalPath:[],
                 selectedOptions2: [],
                 fileList: [],
                 brands:[],
@@ -291,13 +304,20 @@
                 let FileId = '';
                 if(file.size){
                     FileId = file.response.restObj;
+
                 }else {
+
                     FileId = file.url.slice(19);
+
                 }
+                //删除图片的时候，把newImgPath数组里面的值向对应的删除
+                this.imgNewPath.splice(this.imgNewPath.indexOf(FileId),1);
+                //删除服务器图片的同时，把我们保持原始数据的路径一并删除
+                this.imgOriginalPath.splice(this.imgOriginalPath.indexOf(FileId),1);
                 this.$http.delete("/common/file?FileId="+FileId).then(res=>{
-                    if (res.data.success){
+                    /*if (res.data.success){
                         this.fileList=[];
-                    }
+                    }*/
                 }).catch({})
             },
 		    loadextData(index,row){
@@ -314,17 +334,15 @@
                         message: '上传成功',
                         type: 'success'
                     });
-                    console.debug(restObj);
+                    //新上传图片的时候，把新上传图片保存路径加入数组里面
+                    this.imgNewPath.push(restObj);
                     this.fileList = fileList;
-                    /*this.addForm.logo = restObj;*/
-                    /*this.editForm.logo = restObj;*/
                 }else{
                     this.$message({
                         message: message,
                         type: 'error'
                     });
                 }
-                this.fileList = fileList;
             },
             getBrands(){
                 this.$http.get("/product/brand/list").then(res=>{
@@ -353,7 +371,7 @@
                 return data;
             },
             handleViewProperties(){
-                alert("显示属性");
+                this.handleViewFormVisible = true;
 			},
             handleSkuProperties(){
                 alert("SKU属性");
@@ -453,7 +471,14 @@
 				this.editFormVisible = true;
 				this.editForm = Object.assign({}, row);
                 this.loadGetPath(index, row);
-				this.fileList.push({"url":"http://172.16.4.128"+this.editForm.medias});
+                this.fileList=[];
+                if(row.medias){
+                   let arr =  row.medias.split(",");
+                   for (var index = 0;index < arr.length;index++){
+                       this.fileList.push({"url":"http://172.16.4.128"+arr[index]});
+                       this.imgOriginalPath.push(arr[index]);
+				   }
+				}
 			},
 			//显示新增界面
 			handleAdd: function () {
@@ -462,7 +487,7 @@
 				this.addForm = {
                     name: '',
                     subName:'',
-                    productTypeId:'',
+                    productTypeId:[],
                     brandId:'',
                     medias:'',
                     ext: {
@@ -483,7 +508,10 @@
                                 var b = this.selectedOptions2[i];
                             }
                             para.productTypeId = b;
-                            console.debug(para);
+                            para.medias =  this.imgNewPath.concat(this.imgOriginalPath).join(",")
+							//原有的数据已经用一个新数组接收了，现在需要把新添加的图片地址用了新的保存了
+                            //para.medias = this.imgNewPath.join(",");
+                            console.debug(para.medias);
                             this.$http.post("/product/product/add",para).then(
                                 res=>{
                                     let {success,message,restObj} = res.data;
@@ -495,6 +523,7 @@
                                         });
                                         this.$refs['editForm'].resetFields();
                                         this.editFormVisible = false;
+                                        this.editLoading = false;
                                         this.getProduct();
                                     }else{
                                         this.$message({
