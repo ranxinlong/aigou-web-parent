@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="497492e1-0367-4c01-a0e4-6874739a2b00" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/aigou-web-admin/cs.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue" afterPath="$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue" />
     </list>
@@ -15,21 +16,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Brand.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Brand.vue">
+      <file leaf-file-name="Product.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12180">
-              <caret line="420" column="29" lean-forward="false" selection-start-line="420" selection-start-column="29" selection-end-line="420" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="319">
+              <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#el-form#0;n#el-dialog#2;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#el-card#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-table#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#11333#26688#0" expanded="false" />
+                <element signature="e#16266#16443#0" expanded="false" />
+                <element signature="e#16484#16676#0" expanded="false" />
+                <element signature="e#17067#17256#0" expanded="false" />
+                <element signature="e#17297#17489#0" expanded="false" />
+                <element signature="e#26702#26774#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Product.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue">
+      <file leaf-file-name="cs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aigou-web-admin/cs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="190" column="26" lean-forward="false" selection-start-line="190" selection-start-column="26" selection-end-line="190" selection-end-column="26" />
+            <state relative-caret-position="-79">
+              <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -41,14 +52,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Single File Component" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>productTypeId</find>
-      <find>loadTypeTree</find>
-      <find>editFormRules</find>
       <find>defaultParams</find>
       <find>console.debug</find>
       <find>table</find>
@@ -75,7 +84,10 @@
       <find>handleAdd</find>
       <find>handleRemove</find>
       <find>handleViewProperties</find>
+      <find>viewProperties</find>
+      <find>handleViewSubmit</find>
       <find>handleViewFormVisible</find>
+      <find>handleSkuProperties</find>
     </findStrings>
     <replaceStrings>
       <replace>brands</replace>
@@ -99,6 +111,7 @@
         <option value="$PROJECT_DIR$/aigou-web-admin/src/views/product/Brand.vue" />
         <option value="$PROJECT_DIR$/aigou-web-admin/src/routes.js" />
         <option value="$PROJECT_DIR$/aigou-web-admin/src/main.js" />
+        <option value="$PROJECT_DIR$/aigou-web-admin/cs.html" />
         <option value="$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue" />
       </list>
     </option>
@@ -133,9 +146,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,32 +160,12 @@
               <item name="aigou-web-parent" type="462c0819:PsiDirectoryNode" />
               <item name="aigou-web-admin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="aigou-web-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aigou-web-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="aigou-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aigou-web-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aigou-web-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="aigou-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aigou-web-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aigou-web-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="aigou-web-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,6 +178,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../aigou-parent" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -322,7 +315,8 @@
       <workItem from="1571215496933" duration="20000" />
       <workItem from="1571323410765" duration="9122000" />
       <workItem from="1571359493369" duration="18993000" />
-      <workItem from="1571407451944" duration="21000" />
+      <workItem from="1571407451944" duration="56000" />
+      <workItem from="1571459711495" duration="14493000" />
     </task>
     <task id="LOCAL-00001" summary="修改代码">
       <created>1570794141340</created>
@@ -366,11 +360,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571359540719</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="商品模块">
+      <created>1571407481431</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571407481431</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106392000" />
+    <option name="totallyTimeSpent" value="120920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,11 +395,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6535948" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6519608" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78267974" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14447807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14447807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -469,6 +470,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5510">
+          <caret line="190" column="26" lean-forward="false" selection-start-line="190" selection-start-column="26" selection-end-line="190" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#2;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#el-card#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#11333#26688#0" expanded="false" />
+            <element signature="e#16266#16443#0" expanded="false" />
+            <element signature="e#16484#16676#0" expanded="false" />
+            <element signature="e#17067#17256#0" expanded="false" />
+            <element signature="e#17297#17489#0" expanded="false" />
+            <element signature="e#26702#26774#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Brand.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12180">
@@ -481,7 +500,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5510">
           <caret line="190" column="26" lean-forward="true" selection-start-line="190" selection-start-column="26" selection-end-line="190" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#2;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#el-card#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#11333#26688#0" expanded="false" />
+            <element signature="e#16266#16443#0" expanded="false" />
+            <element signature="e#16484#16676#0" expanded="false" />
+            <element signature="e#17067#17256#0" expanded="false" />
+            <element signature="e#17297#17489#0" expanded="false" />
+            <element signature="e#26702#26774#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -497,7 +526,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13746">
           <caret line="474" column="12" lean-forward="false" selection-start-line="474" selection-start-column="12" selection-end-line="474" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#2;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#el-card#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#11333#26688#0" expanded="false" />
+            <element signature="e#16266#16443#0" expanded="false" />
+            <element signature="e#16484#16676#0" expanded="false" />
+            <element signature="e#17067#17256#0" expanded="false" />
+            <element signature="e#17297#17489#0" expanded="false" />
+            <element signature="e#26702#26774#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -836,11 +875,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/aigou-web-admin/cs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/aigou-web-admin/src/views/product/Product.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="190" column="26" lean-forward="false" selection-start-line="190" selection-start-column="26" selection-end-line="190" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="319">
+          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#el-form#0;n#el-dialog#2;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#el-card#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#el-dialog#3;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#11333#26688#0" expanded="false" />
+            <element signature="e#16266#16443#0" expanded="false" />
+            <element signature="e#16484#16676#0" expanded="false" />
+            <element signature="e#17067#17256#0" expanded="false" />
+            <element signature="e#17297#17489#0" expanded="false" />
+            <element signature="e#26702#26774#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
