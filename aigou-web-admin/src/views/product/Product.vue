@@ -13,7 +13,7 @@
 					<el-button type="primary" @click="handleAdd">新增</el-button>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" @click="handleViewProperties">显示属性</el-button>
+					<el-button type="primary" @click="handleViewProperties()">显示属性</el-button>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="handleSkuProperties">SKU属性</el-button>
@@ -226,7 +226,13 @@
 				</div>
 			</el-card>
 			<el-table :data="skus"style="width: 100%;">
-				<el-table-column v-for="(value,key) in skus[0]" :label="key" :prop="key">
+				<!--v-for判断是不是库存和单价 obj.price = 0; obj.store = 0;-->
+				<el-table-column v-if="key !='price' && key !='store' && key !='indexs' " v-for="(value,key) in skus[0]" :label="key" :prop="key">
+				</el-table-column>
+				<el-table-column v-if="(key =='price' || key =='store') && key !='indexs'" v-for="(value,key) in skus[0]" :label="key" :prop="key">
+					<template scope="scope">
+						<el-input v-model="scope.row[key]" auto-complete="off"></el-input>
+					</template>
 				</el-table-column>
 			</el-table>
 			<div slot="footer" class="dialog-footer">
@@ -247,10 +253,9 @@
 	export default {
 		data() {
 			return {
-
+			    getSkus:{},
 			    //SKU弹窗里面的table表格
 			    skus:[],
-
                 SkuProperties:[],
 			    //SKU属性的弹窗
                 handleSkuFormVisible:false,
@@ -334,6 +339,40 @@
 				//这句话的解析：找到第index1的SkuProperties下的SKU属性下的options，并删除options数组里面下标是index2长度为1的数据
                 this.SkuProperties[index1].options.splice(index2,1);
 			},
+			//商品SKU属性保存
+            handleSkuSubmit(){
+                let productId = this.sels[0].id;
+                this.$confirm('确认保存吗？', '提示', {}).then(() => {
+                    this.addLoading = true;
+                    let paths ={};
+                    paths.skuproperties = this.SkuProperties;
+                    paths.skus = this.skus;
+                    console.debug(paths.skus);
+                    return;
+                    //NProgress.start();
+                    this.$http.post("/product/product/saveSkuProperties?productId="+productId,paths).then(res=>{
+                        let {success,message,restObj} = res.data;
+                        if(success){
+                            this.addLoading = false;
+                            //NProgress.done();
+                            this.$message({
+                                message: '操作成功',
+                                type: 'success'
+                            });
+                            this.handleSkuFormVisible = false;
+                           	this.SkuProperties=[];
+                           	this.skus=[];
+                        }else{
+                            this.$message({
+                                message: '操作失败',
+                                type: 'error'
+                            });
+                        }
+                    }).catch({
+
+                    });
+                });
+            },
 		    /*商品的显示属性保存*/
             handleViewSubmit(){
                 let productId = this.sels[0].id;
@@ -451,6 +490,14 @@
                 return data;
             },
             handleViewProperties(){
+                var satateId = this.sels.map(item => item.state).toString();
+                if(satateId == 1){
+                    this.$message({
+                        message: '该商品上架中，无法打开显示属性，如需查看显示属性请下架该商品',
+                        type: 'warning'
+                    });
+                    return;
+                };
                 if (this.sels.length == 0){
                     this.$message({
                         message: '请选择数据',
@@ -467,12 +514,19 @@
                 }
                 let productId = this.sels[0].id;
                 this.$http.get("/product/product/getviewProperties/"+productId).then(res=>{
-                    console.debug(res.data);
                     this.viewProperties = res.data;
 				}).catch({});
                 this.handleViewFormVisible = true;
 			},
             handleSkuProperties(){
+                var satate = this.sels.map(item => item.state).toString();
+                if(satate == 1){
+                    this.$message({
+                        message: '该商品上架中，无法打开SKU属性，如需查看SKU属性请下架该商品',
+                        type: 'warning'
+                    });
+                    return;
+                };
                 if (this.sels.length == 0){
                     this.$message({
                         message: '请选择数据',
@@ -494,10 +548,88 @@
                 this.handleSkuFormVisible = true;
             },
             handleOnSale(){
-                alert("上架");
+                var OnName = '';
+                for (var index=0;index<this.sels.length;index++){
+                    if (this.sels[index].state == 1){
+                        OnName += this.sels[index].name + ",";
+                    }
+                }
+                var OnProductName =  OnName.substring(0,OnName.length-1);
+                if (OnProductName !=''){
+                    this.$message({
+                        message: '商品 " '+OnProductName+' " 上架中，请勿重复上架同一件商品！',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                var ids = this.sels.map(item => item.id).toString();
+                if(ids.length < 1){
+                    this.$message({
+                        message: '请至少选择一行需要上架的商品',
+                        type: 'warning'
+                    });
+                    return;
+				};
+                this.$http.get("/product/product/onSale?ids="+ids).then(res=>{
+                    this.listLoading = false;
+                    let{success,message,restObj} = res.data;
+                    if (success){
+                        this.$message({
+                            message: '商品上架成功',
+                            type: 'success'
+                        });
+                        this.getProduct();
+                    }else{
+                        this.$message({
+                            message: '商品上架失败',
+                            type: 'error'
+                        });
+                    }
+                }).catch(() => {
+
+                });
             },
             handleOffSale(){
-                alert("下架");
+                let OffName = '';
+                for (let index=0;index<this.sels.length;index++){
+                    if (this.sels[index].state == 0){
+                        OffName += this.sels[index].name + ",";
+                    }
+                }
+                let OffProductName =  OffName.substring(0,OffName.length-1);
+                if (OffProductName !=''){
+                    this.$message({
+                        message: '商品 " '+OffProductName+' " 下架中，请勿重复下架同一件商品！',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                let ids = this.sels.map(item => item.id).toString();
+                if(ids.length < 1){
+                    this.$message({
+                        message: '请至少选择一行需要下架的商品',
+                        type: 'warning'
+                    });
+                    return;
+                };
+                this.$http.get("/product/product/offSale?ids="+ids).then(res=>{
+                    this.listLoading = false;
+                    let{success,message,restObj} = res.data;
+                    if (success){
+                        this.$message({
+                            message: '商品下架成功',
+                            type: 'success'
+                        });
+                        this.getProduct();
+                    }else{
+                        this.$message({
+                            message: '商品下架失败',
+                            type: 'error'
+                        });
+                    }
+                }).catch(() => {
+
+                });
             },
 
             formonSaleTime(row,column){
@@ -555,6 +687,13 @@
 			},
 			//删除
 			handleDel: function (index, row) {
+                if(row.state == 1){
+                    this.$message({
+                        message: '该商品上架中，无法删除，如需删除请先下架该商品！',
+                        type: 'warning'
+                    });
+                    return;
+                }
 				this.$confirm('确认删除该记录吗?', '提示', {
 					type: 'warning'
 				}).then(() => {
@@ -584,6 +723,13 @@
 			},
 			//显示编辑界面
 			handleEdit: function (index, row) {
+                if(row.state == 1){
+                    this.$message({
+                        message: '该商品上架中，无法修改，如需修改请先下架该商品！',
+                        type: 'warning'
+                    });
+                    return;
+				}
                 this.fileList=[];
 				this.editFormVisible = true;
 				this.editForm = Object.assign({}, row);
@@ -717,7 +863,23 @@
 			},
             //批量删除
             batchRemove: function () {
-                var ids = this.sels.map(item => item.id).toString();
+                var OnName = '';
+                for (var index=0;index<this.sels.length;index++){
+                    if (this.sels[index].state == 1){
+                            OnName += this.sels[index].name + ",";
+                    }
+                }
+               var OnProductName =  OnName.substring(0,OnName.length-1);
+                if (OnProductName != null){
+                    this.$message({
+                        message: '商品 " '+OnProductName+' " 未下架，无法进行删除操作！',
+                        type: 'warning'
+                    });
+                    return;
+                }
+                var ids = this.sels.map(item => item.state).toString();
+                return;
+                ids = this.sels.map(item => item.id).toString();
                 this.$http.delete("/product/product/deleteBatch?ids="+ids).then(res=>{
                     this.listLoading = false;
                     let{success,message,restObj} = res.data;
@@ -755,20 +917,34 @@
 				 //   cur={"specName":"年龄",options:["御姐","萝莉"]}
 		         let map =[];
 				 pre.forEach(e1=>{ //第一次循环：e1：{} 第二次循环 e1：{"年龄":"御姐"}
-				     cur.options.forEach(e2=>{//e2:御姐 萝莉
+				     cur.options.forEach((e2,index)=>{//e2:御姐 萝莉
 				         let obj = Object.assign({},e1); //循环1,obj:{}
 				         obj[cur.specName] = e2;//循环1：obj{"年龄":"御姐"}
+						 let lastIndexs = obj.indexs;
+						 if (!lastIndexs) lastIndexs = '';
 						 //判断是不是最后的一次reduce
 						 if (currentIndex == skuPropertiesArr.length -1 ){
-						     obj.price = 0;
-						     obj.store = 0;
+						     	console.debug(this.getSkus)
+                                 obj.price = 0;
+                                 obj.store = 0;
+							     lastIndexs = lastIndexs + index;
+						 }else{
+						     lastIndexs = lastIndexs + index +"-";
 						 }
+						 obj.indexs = lastIndexs;
 				         map.push(obj); //map ：{"年龄":"御姐"}
 					 })
 				 })
 				 return map;
 			 },[{}])
 			  this.skus = result;
+              this.$http.get("/product/sku/getSku/"+this.sels[0].id).then(res=>{
+                   let s = res.data;
+                   for (let i =0;i<s.length;i++){
+                       this.skus[i].price = s[i].price
+                       this.skus[i].store = s[i].availableStock
+                   }
+               })
 		   },
 			deep:true
 			}

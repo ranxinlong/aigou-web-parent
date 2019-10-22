@@ -8,20 +8,20 @@
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
 		<!-- 网站头像 -->
-		<link type="text/css" rel="stylesheet" href="css/iconfont.css">
-		<link type="text/css" rel="stylesheet" href="css/common.css">
+		<link type="text/css" rel="stylesheet" href="/static/css/iconfont.css">
+		<link type="text/css" rel="stylesheet" href="/static/css/common.css">
 		<!--整站改色 _start-->
-		<link type="text/css" rel="stylesheet" href="css/color-style.css">
+		<link type="text/css" rel="stylesheet" href="/static/css/color-style.css">
 		<!--整站改色 _end-->
-		<link rel="stylesheet" href="css/layer.css" id="layuicss-skinlayercss">
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/jquery.cookie.js"></script>
-		<script type="text/javascript" src="js/layer.js"></script>
-		<script type="text/javascript" src="js/jquery.method.js"></script>
-		<script type="text/javascript" src="js/jquery.modal.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="/static/css/layer.css" id="layuicss-skinlayercss">
+		<script type="text/javascript" src="/static//static/js/jquery.js"></script>
+		<script type="text/javascript" src="/static//static/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/static//static/js/layer.js"></script>
+		<script type="text/javascript" src="/static//static/js/jquery.method.js"></script>
+		<script type="text/javascript" src="/static//static/js/jquery.modal.js"></script>
+		<script type="text/javascript" src="/static//static/js/common.js"></script>
 		<!-- 图片缓载js -->
-		<script type="text/javascript" src="js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="/static//static/js/jquery.lazyload.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				// 搜索框提示显示
@@ -88,10 +88,11 @@
 				}
 			});
 		</script>
+		<script type="text/javascript" src="/static/js/vue/vue.js"></script>
 	</head>
 
 	<body class="pace-done">
-
+	<div id="app">
 		<!-- 站点选择 -->
 		<div class="header-top">
 			<div class="header-box">
@@ -170,7 +171,7 @@
 							<div id="menu-5" class="menu-bd we-chat-qrcode">
 								<span class="menu-bd-mask"></span>
 								<a target="_top">
-									<img src="img/test/mall_wx_qrcode_0.jpg" alt="官方微信">
+									<img src="/static/img/test/mall_wx_qrcode_0.jpg" alt="官方微信">
 								</a>
 								<p class="font-14">关注官方微信</p>
 							</div>
@@ -214,12 +215,11 @@
 			<div class="w1210">
 				<div class="logo-info">
 					<a href="/" class="logo">
-						<img src="img/test/mall_logo_0.png">
+						<img src="/static/img/test/mall_logo_0.png">
 					</a>
-
 					<!-- logo右侧小广告 _start -->
 					<a href="#" class="logo-right">
-						<img src="img/test/mall_logo_right_ad_image_0.png">
+						<img src="/static/img/test/mall_logo_right_ad_image_0.png">
 					</a>
 					<!-- logo右侧小广告 _end -->
 
@@ -236,7 +236,7 @@
 							</div>
 							<div class="search-box">
 								<div class="search-box-con">
-									<input type="text" class="keyword search-box-input SZY-SEARCH-BOX-KEYWORD" name="keyword" tabindex="9" autocomplete="off" data-searchwords="特价商品" placeholder="搜索特价商品" value="">
+									<input type="text" class="keyword search-box-input SZY-SEARCH-BOX-KEYWORD" name="keyword" tabindex="9" autocomplete="off" data-searchwords="特价商品" placeholder="搜索特价商品" value="" v-model="keyword">
 								</div>
 							</div>
 							<input type="hidden" id="searchtype" name="type" value="0" class="searchtype">
@@ -325,7 +325,7 @@
 
 				<div class="header-right">
 					<a href="#" title="">
-						<img src="img/test/mall_search_right_ad_image_0.png">
+						<img src="/static/img/test/mall_search_right_ad_image_0.png">
 					</a>
 				</div>
 
@@ -376,7 +376,7 @@
 							<!-- 导航小标签 _start -->
 
 							<span class="nav-icon">
-						<img src="img/test/14766722355540.gif">
+						<img src="/static/img/test/14766722355540.gif">
 					</span>
 
 							<!-- 导航小标签 _end -->
@@ -401,7 +401,7 @@
 							<!-- 导航小标签 _start -->
 
 							<span class="nav-icon">
-						<img src="img/test/14766722553394.gif">
+						<img src="/static/img/test/14766722553394.gif">
 					</span>
 
 							<!-- 导航小标签 _end -->
@@ -412,7 +412,7 @@
 							<!-- 导航小标签 _start -->
 
 							<span class="nav-icon">
-						<img src="img/test/14794053929710.gif">
+						<img src="/static/img/test/14794053929710.gif">
 					</span>
 
 							<!-- 导航小标签 _end -->
@@ -429,7 +429,7 @@
 
 		<!-- 开始：主要区域内容 -->
 		<!-- css -->
-		<link type="text/css" rel="stylesheet" href="css/category.css">
+		<link type="text/css" rel="stylesheet" href="/static/css/category.css">
 		<!-- 占位符 -->
 		<script type="text/javascript">
 			var begin_hidden = 0;
@@ -643,7 +643,7 @@
 					<dl>
 						<dt>
 					<a target="_blank" href="http://www.itsource.cn/goods-4.html" title="加绒打底裤加厚外穿女裤秋款铅笔黑色小脚高腰秋冬款保暖长裤冬季" style="background: url({ imageurl($ lazyload_image)">
-						<img src="img/test/14788784646707.jpg" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/11/14788784646707.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
+						<img src="/static/img/test/14788784646707.jpg" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/11/14788784646707.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
 					</a>
 				</dt>
 						<dd>
@@ -663,7 +663,7 @@
 					<dl>
 						<dt>
 					<a target="_blank" href="http://www.itsource.cn/goods-7.html" title="浪莎加绒加厚打底裤女秋冬外穿高腰大码踩脚黑色保暖棉裤小脚长裤" style="background: url({ imageurl($ lazyload_image)">
-						<img src="img/test/14789657995869.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789657995869.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
+						<img src="/static/img/test/14789657995869.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789657995869.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
 					</a>
 				</dt>
 						<dd>
@@ -683,7 +683,7 @@
 					<dl>
 						<dt>
 					<a target="_blank" href="http://www.itsource.cn/goods-9.html" title="紧身裤女加厚加绒踩脚裤打底裤丝袜秋冬款外穿冬季保暖裤一体裤子" style="background: url({ imageurl($ lazyload_image)">
-						<img src="img/test/14789669544048.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789669544048.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
+						<img src="/static/img/test/14789669544048.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789669544048.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
 					</a>
 				</dt>
 						<dd>
@@ -703,7 +703,7 @@
 					<dl>
 						<dt>
 					<a target="_blank" href="http://www.itsource.cn/goods-10.html" title="加绒加厚打底裤女士秋冬款外穿显瘦高腰保暖裤子棉裤冬季踩脚裤袜" style="background: url({ imageurl($ lazyload_image)">
-						<img src="img/test/14789686200823.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789686200823.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
+						<img src="/static/img/test/14789686200823.png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789686200823.png?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" alt="" style="display: inline;">
 					</a>
 				</dt>
 						<dd>
@@ -724,7 +724,7 @@
 			</div>
 
 			<!--当前位置，面包屑-->
-			<div class="breadcrumb clearfix">
+			<div class="breadcrumb clearfix" v-if="productTypeId">
 				<a href="http://www.itsource.cn/" class="index">首页</a>
 
 				<span class="crumbs-arrow">&gt;</span>
@@ -854,7 +854,7 @@
 					<!-- -->
 					<!--品牌-->
 
-					<dl class="" id="attr-group-dl-brand">
+					<dl class="" id="attr-group-dl-brand" v-if="productTypeId">
 						<dt>品牌：</dt>
 						<dd class="moredd">
 							<label id="brand-more"><a href="javascript:void(0);" onclick="slideDiv(this, &#39;brand-abox&#39;, &#39;83&#39;);" class="more">更多</a></label>
@@ -1589,7 +1589,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="加绒打底裤加厚外穿女裤秋款铅笔黑色小脚高腰秋冬款保暖长裤冬季" href="http://www.itsource.cn/goods-4.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/14788784646707(1).jpg" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/11/14788784646707.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/14788784646707(1).jpg" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/11/14788784646707.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1608,7 +1608,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="浪莎加绒加厚打底裤女秋冬外穿高腰大码踩脚黑色保暖棉裤小脚长裤" href="http://www.itsource.cn/goods-7.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/14789657995869(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789657995869.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/14789657995869(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789657995869.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1627,7 +1627,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="紧身裤女加厚加绒踩脚裤打底裤丝袜秋冬款外穿冬季保暖裤一体裤子" href="http://www.itsource.cn/goods-9.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/14789669544048(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789669544048.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/14789669544048(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789669544048.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1646,7 +1646,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="加绒加厚打底裤女士秋冬款外穿显瘦高腰保暖裤子棉裤冬季踩脚裤袜" href="http://www.itsource.cn/goods-10.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/14789686200823(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789686200823.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/14789686200823(1).png" data-original="http://itsource.oss-cn-beijing.aliyuncs.com/图片/shop/6/gallery/2016/11/12/14789686200823.png?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1674,7 +1674,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="花花公子男士纯棉秋衣秋裤薄款棉毛衫青年全棉基础保暖内衣男套装" href="http://www.itsource.cn/goods-2393.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/537310635822/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/537310635822/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1691,7 +1691,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="南极人男士内裤男纯棉质平角裤大码青年卡通四角内裤男生可爱裤头" href="http://www.itsource.cn/goods-2436.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/39309371619/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/39309371619/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1708,7 +1708,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="南极人男士保暖内衣男加厚加绒女冬秋衣秋裤中老年保暖套装防寒衣" href="http://www.itsource.cn/goods-2386.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521136254098/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521136254098/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1725,7 +1725,7 @@
 
 									<div class="p-img">
 										<a target="_blank" title="南极人丝袜连裤袜防勾丝秋季中厚打底裤袜秋冬款加绒加厚连体连脚" href="http://www.itsource.cn/goods-2607.html" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521255797655/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
+											<img alt="" src="/static/img/test/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521255797655/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_450,w_450" style="display: inline;">
 										</a>
 									</div>
 									<div class="p-name">
@@ -1888,7 +1888,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2393.html" title="花花公子男士纯棉秋衣秋裤薄款棉毛衫青年全棉基础保暖内衣男套装" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/537310635822/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/537310635822/TB1RwYELXXXXXXHaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -1897,25 +1897,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -1977,7 +1977,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2436.html" title="南极人男士内裤男纯棉质平角裤大码青年卡通四角内裤男生可爱裤头" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/39309371619/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/39309371619/TB13UeJKVXXXXcJXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -1986,25 +1986,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2066,7 +2066,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2386.html" title="南极人男士保暖内衣男加厚加绒女冬秋衣秋裤中老年保暖套装防寒衣" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521136254098/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521136254098/TB186J.NpXXXXbXXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2075,25 +2075,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2155,7 +2155,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2607.html" title="南极人丝袜连裤袜防勾丝秋季中厚打底裤袜秋冬款加绒加厚连体连脚" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521255797655/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic(1).jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521255797655/TB12zSlNVXXXXb.aXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2164,25 +2164,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2244,7 +2244,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2385.html" title="南极人男士女士秋衣秋裤棉毛衫圆领打底薄款情侣保暖内衣女套装" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1kTfaOXXXXXb6XpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/25354992789/TB1kTfaOXXXXXb6XpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1kTfaOXXXXXb6XpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/25354992789/TB1kTfaOXXXXXb6XpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2253,25 +2253,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2333,7 +2333,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2384.html" title="南极人保暖内衣男士女士双层加厚加绒冬季秋衣秋裤套装黄金绒暖甲" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1aShoOpXXXXb.XFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/3316310008/TB1aShoOpXXXXb.XFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1aShoOpXXXXb.XFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/3316310008/TB1aShoOpXXXXb.XFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2342,25 +2342,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2422,7 +2422,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2488.html" title="袜子男纯棉中筒袜棉袜秋冬季短袜全棉吸汗防臭男士商务男袜礼盒装" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB17pAPMVXXXXcbXpXXYXGcGpXX_M2.SS2" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/534137803418/TB17pAPMVXXXXcbXpXXYXGcGpXX_M2.SS2?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB17pAPMVXXXXcbXpXXYXGcGpXX_M2.SS2" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/534137803418/TB17pAPMVXXXXcbXpXXYXGcGpXX_M2.SS2?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2431,25 +2431,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2511,7 +2511,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2454.html" title="南极人无痕内裤女纯棉裆性感大码中腰女士裤头棉质面料少女三角裤" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB18nkXOXXXXXXvXFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/527526627539/TB18nkXOXXXXXXvXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB18nkXOXXXXXXvXFXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/527526627539/TB18nkXOXXXXXXvXFXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2520,25 +2520,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2600,7 +2600,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2438.html" title="彼尔丹5条礼盒装男士内裤纯棉质性感潮青年平角裤四角裤男生裤头" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1XxpOLpXXXXauapXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/525872562108/TB1XxpOLpXXXXauapXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1XxpOLpXXXXauapXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/525872562108/TB1XxpOLpXXXXauapXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2609,25 +2609,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2689,7 +2689,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2397.html" title="红豆秋衣秋裤男士女士纯棉薄款棉毛衫全棉中老年保暖基础内衣套装" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1P564MVXXXXXmXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/535816367410/TB1P564MVXXXXXmXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1P564MVXXXXXmXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/535816367410/TB1P564MVXXXXXmXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2698,25 +2698,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2778,7 +2778,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2027.html" title="加绒仿皮打底裤加厚外穿长裤显瘦黑色小脚裤皮裤弹力大码女裤秋冬" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1LR0lLXXXXXaGXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/42186460554/TB1LR0lLXXXXXaGXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1LR0lLXXXXXaGXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/42186460554/TB1LR0lLXXXXXaGXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2787,25 +2787,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2867,7 +2867,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2606.html" title="春秋季丝袜连裤袜中厚打底袜子女防勾丝天鹅绒彩色黑长袜秋冬包邮" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1YTYHHpXXXXc_XXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/40335182511/TB1YTYHHpXXXXc_XXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1YTYHHpXXXXc_XXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/40335182511/TB1YTYHHpXXXXc_XXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2876,25 +2876,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -2956,7 +2956,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2390.html" title="北极绒纯棉男士秋裤保暖线裤棉毛裤全棉衬裤薄款女士打底裤男单件" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB11pMlMVXXXXbyaXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/535333167862/TB11pMlMVXXXXbyaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB11pMlMVXXXXbyaXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/535333167862/TB11pMlMVXXXXbyaXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -2965,25 +2965,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3045,7 +3045,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2439.html" title="七匹狼男士内裤男 男平角裤冰丝大码四角内裤青年男生裤头男内裤" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1XBQBLFXXXXboXXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/527358143218/TB1XBQBLFXXXXboXXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1XBQBLFXXXXboXXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/527358143218/TB1XBQBLFXXXXboXXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3054,25 +3054,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3134,7 +3134,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-1137.html" title="韩版百搭纯色超大春夏防晒棉麻围巾文艺女式冬季披肩韩国丝巾女" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1O_vnJXXXXXbaXXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521415925389/TB1O_vnJXXXXXbaXXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1O_vnJXXXXXbaXXXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521415925389/TB1O_vnJXXXXXbaXXXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3143,25 +3143,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3223,7 +3223,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-429.html" title="欧比森保暖白衬衫男士长袖修身韩版纯色加绒加厚商务衬衣男装寸衫" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB16cQbOXXXXXbSXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/41458920633/TB16cQbOXXXXXbSXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB16cQbOXXXXXbSXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/41458920633/TB16cQbOXXXXXbSXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3232,25 +3232,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3312,7 +3312,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2440.html" title="佐华奴四条礼盒装男士内裤 男平角裤 性感潮中腰冰丝感四角裤头" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB13r9aLpXXXXctXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/534301923154/TB13r9aLpXXXXctXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB13r9aLpXXXXctXVXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/534301923154/TB13r9aLpXXXXctXVXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3321,25 +3321,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3401,7 +3401,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-1823.html" title="秋冬韩版短款宽松半高领毛衣打底衫女外套长袖套头加厚紧身针织衫" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB1qnFuNFXXXXarXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/523084320739/TB1qnFuNFXXXXarXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB1qnFuNFXXXXarXpXXXXXXXXXX_!!0-item_pic.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/523084320739/TB1qnFuNFXXXXarXpXXXXXXXXXX_!!0-item_pic.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3410,25 +3410,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3490,7 +3490,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2437.html" title="南极人男士内裤 男平角裤纯棉质大码性感四角短裤头青年4条男生潮" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB21K_WcPm2.eBjSZFtXXX56VXa_!!26839388.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/44047642649/TB21K_WcPm2.eBjSZFtXXX56VXa_!!26839388.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB21K_WcPm2.eBjSZFtXXX56VXa_!!26839388.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/44047642649/TB21K_WcPm2.eBjSZFtXXX56VXa_!!26839388.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3499,25 +3499,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3579,7 +3579,7 @@
 
 									<div class="item-pic">
 										<a href="http://www.itsource.cn/goods-2453.html" title="5条女士内裤女纯棉无痕全棉蕾丝性感低腰三角裤大码中腰棉质面料" target="_blank" style="background: url({ imageurl($ lazyload_image)">
-											<img alt="" src="img/test/TB21dhwX5Zd61BjSZFLXXXMMFXa_!!87580387.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521077644536/TB21dhwX5Zd61BjSZFLXXXMMFXa_!!87580387.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
+											<img alt="" src="/static/img/test/TB21dhwX5Zd61BjSZFLXXXMMFXa_!!87580387.jpg" data-original="http://itsource.img-cn-beijing.aliyuncs.com/图片/taobao-yun-images/521077644536/TB21dhwX5Zd61BjSZFLXXXMMFXa_!!87580387.jpg?x-oss-process=image/resize,m_pad,limit_0,h_320,w_320" style="display: inline;">
 										</a>
 									</div>
 									<div class="img-scroll scrolled" style=" display: none;">
@@ -3588,25 +3588,25 @@
 										<div class="img-wrap">
 											<ul class="img-main" style="left: 0px; width: 238px;">
 												<li class="img-item">
-													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="img/test/1.jpg"></a>
+													<a href="javascript:;" title="粉色" class="curr"><img width="25" height="25" src="/static/img/test/1.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title="红色"><img width="25" height="25" src="img/test/2.jpg"></a>
+													<a href="javascript:;" title="红色"><img width="25" height="25" src="/static/img/test/2.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/5.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/5.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/3.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/3.jpg"></a>
 												</li>
 												<li class="img-item">
-													<a href="javascript:;" title=""><img width="25" height="25" src="img/test/4.jpg"></a>
+													<a href="javascript:;" title=""><img width="25" height="25" src="/static/img/test/4.jpg"></a>
 												</li>
 											</ul>
 										</div>
@@ -3738,9 +3738,9 @@
 
 		</div>
 
-		<script type="text/javascript" src="js/jquery.region.js"></script>
-		<script type="text/javascript" src="js/jquery.widget.js"></script>
-		<script type="text/javascript" src="js/jquery.tablelist.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.region.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.widget.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablelist.js"></script>
 		<!-- 选中当前分类弹出同级分类JS -->
 		<script type="text/javascript">
 			$(function() {
@@ -3879,7 +3879,7 @@
 			});
 		</script>
 
-		<script type="text/javascript" src="js/category.js"></script>
+		<script type="text/javascript" src="/static/js/category.js"></script>
 		<!-- 结束：主要区域内容-->
 
 		<!-- 站点底部-->
@@ -3902,7 +3902,7 @@
 										<div class="SZY-USER-NOT-LOGIN" style="">
 											<div class="user-pic">
 												<div class="user-pic-mask"></div>
-												<img src="img/test/default_user_portrait_0.png">
+												<img src="/static/img/test/default_user_portrait_0.png">
 											</div>
 											<br>
 											<p>
@@ -4031,7 +4031,7 @@
 								</a>
 								<div class="sidebar-code quick-sidebar">
 									<i class="arrow-right"></i>
-									<img src="img/test/mall_wx_qrcode_0.jpg">
+									<img src="/static/img/test/mall_wx_qrcode_0.jpg">
 								</div>
 							</li>
 							<li class="returnTop" style="display: none;">
@@ -4159,7 +4159,7 @@
 		<div class="site-footer">
 
 			<div class="footer-service">
-				<div align="center"><img src="img/test/14778844965714.jpg" alt="" height="85" width="1210"></div>
+				<div align="center"><img src="/static/img/test/14778844965714.jpg" alt="" height="85" width="1210"></div>
 			</div>
 
 			<div class="footer-related">
@@ -4290,7 +4290,7 @@
 						<div class="code-content">
 
 							<div class="code ">
-								<img src="img/test/mall_wx_qrcode_0.jpg">
+								<img src="/static/img/test/mall_wx_qrcode_0.jpg">
 							</div>
 
 						</div>
@@ -4361,24 +4361,61 @@
 				<p>&nbsp;</p>
 
 				<p class="footer-fp-img">
-					<a target="_blank" href="#"><img src="img/test/kxwz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/smyz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/cxyz.jpg"></a>
-					<a target="_blank" href="#"><img src="img/test/hyyz.png"></a>
-					<a target="_blank" href="#"><img src="img/test/jpfw.png"></a>
+					<a target="_blank" href="#"><img src="/static/img/test/kxwz.png"></a>
+					<a target="_blank" href="#"><img src="/static/img/test/smyz.png"></a>
+					<a target="_blank" href="#"><img src="/static/img/test/cxyz.jpg"></a>
+					<a target="_blank" href="#"><img src="/static/img/test/hyyz.png"></a>
+					<a target="_blank" href="#"><img src="/static/img/test/jpfw.png"></a>
 				</p>
 			</div>
 
 		</div>
+	</div>
 
 		<!-- 第三方流量统计 -->
 		<div style="display: none;"></div>
 		<!-- 底部 _end-->
+		<script type="text/javascript">
+            let app = new Vue({
+                el:"#app",
+                data:{
+                    keyword:'',
+                    productTypeId:null
+                },
+                methods:{
+                    getQueryString() {
+                        var qs = location.search.substr(1), // 获取url中"?"符后的字串
+                            args = {}, // 保存参数数据的对象
+                            items = qs.length ? qs.split("&") : [], // 取得每一个参数项,
+                            item = null,
+                            len = items.length;
 
-		<script type="text/javascript" src="js/jquery.fly.min.js"></script>
-		<script type="text/javascript" src="js/szy.cart.js"></script>
+                        for(var i = 0; i < len; i++) {
+                            item = items[i].split("=");
+                            var name = decodeURIComponent(item[0]),
+                                value = decodeURIComponent(item[1]);//解码，中文乱码
+                            if(name) {
+                                args[name] = value;
+                            }
+                        }
+                        return args;
+                    }
+                },
+                mounted(){
+                    //获取请求路径中的参数
+                    let args = this.getQueryString();
+                    this.keyword = args.keyword;
+                    this.productTypeId = args.productType;
+                }
+            })
+		</script>
+
+
+
+		<script type="text/javascript" src="/static/js/jquery.fly.min.js"></script>
+		<script type="text/javascript" src="/static/js/szy.cart.js"></script>
 		<!--[if lte IE 9]>
-<script type="text/javascript" src="/js/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="//static/js/requestAnimationFrame.js"></script>
 <![endif]-->
 		<script type="text/javascript">
 			$().ready(function() {
