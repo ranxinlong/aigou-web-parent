@@ -347,8 +347,6 @@
                     let paths ={};
                     paths.skuproperties = this.SkuProperties;
                     paths.skus = this.skus;
-                    console.debug(paths.skus);
-                    return;
                     //NProgress.start();
                     this.$http.post("/product/product/saveSkuProperties?productId="+productId,paths).then(res=>{
                         let {success,message,restObj} = res.data;
